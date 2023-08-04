@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>iMage</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Menu</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button
+      (click)="showFiller = !showFiller"
+      routerLink="/products"
+      mat-raised-button
+    >
+      Products - Crud
+    </button>
+  </mat-drawer>
+
+  <form class="crud" [formGroup]="form" (submit)="onSubmit()">
+    <div class="example-container-slidebar">
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input matInput type="text" formControlName="email" required />
+      </mat-form-field>
+    </div>
+
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput type="text" formControlName="password" required />
+      </mat-form-field>
+    </div>
+
+    <button mat-fab extended color="primary">Login</button>
+  </form></mat-drawer-container
+>
